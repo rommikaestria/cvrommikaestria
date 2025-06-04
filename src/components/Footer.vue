@@ -83,12 +83,24 @@ const currentYear = new Date().getFullYear();
             <input
               type="email"
               placeholder="Masukkan email Anda"
-              class="px-4 py-3 w-full bg-white/10 text-white placeholder-blue-200 focus:outline-none flex-grow"
+              class="px-4 py-3 w-full bg-white/10 text-white placeholder-blue-200 focus:outline-none flex-grow text-sm"
               required />
             <button
               type="submit"
-              class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 px-6 py-3 text-white font-medium transition duration-300 relative overflow-hidden shadow-inner">
-              <span class="relative z-10">Berlangganan</span>
+              class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 px-6 py-3 text-white font-medium transition duration-300 relative overflow-hidden shadow-inner whitespace-nowrap min-w-[140px]">
+              <span class="relative z-10 hidden sm:inline text-sm">
+                Berlangganan
+              </span>
+              <span class="relative z-10 sm:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path
+                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+              </span>
               <span
                 class="absolute top-0 left-0 right-0 h-1/3 bg-white/20 rounded-full blur-sm"></span>
             </button>
@@ -181,5 +193,11 @@ button[type='submit']::after {
 
 button[type='submit']:hover::after {
   transform: rotate(25deg) translateY(-15px);
+}
+
+/* Pastikan teks tidak terpotong */
+button[type='submit'] {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 </style>
