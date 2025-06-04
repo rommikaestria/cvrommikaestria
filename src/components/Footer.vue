@@ -1,5 +1,5 @@
 <script setup>
-const currerYear = new Date().getFullYear;
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -8,35 +8,37 @@ const currerYear = new Date().getFullYear;
       <div>
         <!--tentang saya-->
         <div>
-          <h3>Rommi Kaestria</h3>
-          <p>Web Developer</p>
-          <p>© tahun Rommi Kaestria</p>
-          <p>All rights reserved.</p>
+          <h3 class="text-xl font-bold mb-4 text-blue-500">Rommi Kaestria</h3>
+          <p class="mb-2">Web Developer</p>
+          <p class="mb-2">{{ currentYear }} © Rommi Kaestria</p>
+          <p class="mb-2">All rights reserved.</p>
         </div>
         <!--Link saya-->
         <div>
-          <h3>link Cepat</h3>
+          <h3 class="text-xl font-bold mb-4 text-blue-500">link Cepat</h3>
           <ul>
-            <li>beranda</li>
-            <li>tentang saya</li>
-            <li>layanan</li>
-            <li>Kontak</li>
+            <li class="mb-2">beranda</li>
+            <li class="mb-2">tentang saya</li>
+            <li class="mb-2">layanan</li>
+            <li class="mb-2">Kontak</li>
           </ul>
         </div>
         <!--Layanan saya-->
         <div>
-          <h3>Layanan Saya</h3>
+          <h3 class="text-xl font-bold mb-4 text-blue-500">Layanan Saya</h3>
           <ul>
-            <li>Web Development</li>
-            <li>UI/UX Design</li>
-            <li>SEO Optimization</li>
-            <li>Content Creation</li>
+            <li class="mb-2">Web Development</li>
+            <li class="mb-2">UI/UX Design</li>
+            <li class="mb-2">SEO Optimization</li>
+            <li class="mb-2">Content Creation</li>
           </ul>
         </div>
         <!--NewsLetter-->
         <div>
-          <h3>Berlangganan Newsletter</h3>
-          <p>Dapatkan pembaruan terbaru dan penawaran khusus.</p>
+          <h3 class="text-xl font-bold mb-4 text-blue-500">
+            Berlangganan Newsletter
+          </h3>
+          <p class="mb-4">Dapatkan pembaruan terbaru dan penawaran khusus.</p>
           <form>
             <input type="email" placeholder="Masukkan email Anda" required />
             <button type="submit">Berlangganan</button>
