@@ -1,16 +1,7 @@
 import { createApp } from 'vue';
 import './style.css';
 import App from './App.vue';
-import { createRouter, createWebHashHistory } from 'vue-router';
-
-// Definisi rute - rute
-const routes = [{}];
-
-// Membuat router
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes, // short for `routes: routes`
-});
+import router from './router';
 
 //createApp(App).mount('#app');
 const app = createApp(App);
