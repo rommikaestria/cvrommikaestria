@@ -78,16 +78,19 @@ const currentYear = new Date().getFullYear();
             Berlangganan Newsletter
           </h3>
           <p class="mb-4">Dapatkan pembaruan terbaru dan penawaran khusus.</p>
-          <form>
+          <form
+            class="flex flex-col sm:flex-row rounded-md overflow-hidden shadow-lg border border-white/20">
             <input
               type="email"
               placeholder="Masukkan email Anda"
-              class="px-4 py-2 w-full text-blue-200 rounded-l focus:outline-none"
+              class="px-4 py-3 w-full bg-white/10 text-white placeholder-blue-200 focus:outline-none flex-grow"
               required />
             <button
               type="submit"
-              class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r transition duration-300">
-              Berlangganan
+              class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 px-6 py-3 text-white font-medium transition duration-300 relative overflow-hidden shadow-inner">
+              <span class="relative z-10">Berlangganan</span>
+              <span
+                class="absolute top-0 left-0 right-0 h-1/3 bg-white/20 rounded-full blur-sm"></span>
             </button>
           </form>
         </div>
@@ -158,4 +161,25 @@ const currentYear = new Date().getFullYear();
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* Efek glossy tambahan untuk tombol */
+button[type='submit']::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: rotate(35deg);
+  transition: all 0.3s;
+}
+
+button[type='submit']:hover::after {
+  transform: rotate(25deg) translateY(-15px);
+}
+</style>
