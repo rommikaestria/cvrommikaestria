@@ -3,12 +3,13 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-  <footer class="bg-fuchsia-800 text-white">
+  <footer
+    class="bg-gradient-to-br from-fuchsia-600 via-purple-500 to-indigo-600 text-white">
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!--tentang saya-->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-blue-400">Rommi Kaestria</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400">Rommi Kaestria</h3>
           <p class="mb-2">Web Developer</p>
           <p class="mb-2">{{ currentYear }} © Rommi Kaestria</p>
           <p class="mb-2">Jl. Contoh No. 123, Palangka Raya</p>
@@ -17,7 +18,9 @@ const currentYear = new Date().getFullYear();
         </div>
         <!--Link saya-->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-blue-400">link Cepat</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400 text-shadow-gray-950">
+            link Cepat
+          </h3>
           <ul>
             <li class="mb-2">
               <a href="#" class="hover:text-blue-300 transition duration-300">
@@ -43,7 +46,9 @@ const currentYear = new Date().getFullYear();
         </div>
         <!--Layanan saya-->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-blue-400">Layanan Saya</h3>
+          <h3 class="text-xl font-bold mb-2 text-blue-400 text-shadow-gray-950">
+            Layanan Saya
+          </h3>
           <ul>
             <li class="mb-2">
               <a href="#" class="hover:text-blue-300 transition duration-300">
@@ -69,7 +74,7 @@ const currentYear = new Date().getFullYear();
         </div>
         <!--NewsLetter-->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-blue-400">
+          <h3 class="text-xl font-bold mb-2 text-blue-400 text-shadow-gray-950">
             Berlangganan Newsletter
           </h3>
           <p class="mb-4">Dapatkan pembaruan terbaru dan penawaran khusus.</p>
