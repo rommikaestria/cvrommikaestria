@@ -14,10 +14,10 @@ const Hero = () => {
             Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis .
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-            <a href="mailto:ketikode.official@gmail.com" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
+            <a href="mailto:rokafordev@gmail.com" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
               <FiMail size={22} />
             </a>
-            <a href="https://ketikode.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
+            <a href="https://www.google.com/search?q=rommi+kaestria&oq=rommi+kaestria&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYQdIBCTQxNTFqMGoxNagCCLACAfEFbVzqp_BoKJY&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
               <FiGlobe size={22} />
             </a>
             <a href="https://linkedin.com/in/rommi-kaestria" target="_blank" rel="noopener noreferrer" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
