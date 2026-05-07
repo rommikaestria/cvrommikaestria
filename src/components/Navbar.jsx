@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center justify-center md:justify-start w-full md:w-auto">
               {/* Added w-full and justify-center on mobile so logo is centered since there's no hamburger menu */}
-              <a href="#" className="font-bold text-xl text-navy">RK.</a>
+              <a href="#" className="font-bold text-xl text-navy">Rommi Kaestria</a>
             </div>
             
             {/* Desktop Menu */}
