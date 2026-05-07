@@ -7,14 +7,13 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Profil', href: '#about', icon: FiUser },
     { name: 'Karir', href: '#experience', icon: FiBriefcase },
-    { name: 'Keahlian', href: '#skills', icon: FiCode },
-    { name: 'Buku', href: '#books', icon: FiBook },
+    { name: 'Karya', href: '#books', icon: FiBook },
   ];
 
   // Optional: Track active section for styling
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'skills', 'books'];
+      const sections = ['about', 'experience', 'books'];
       let current = '';
       
       for (const section of sections) {

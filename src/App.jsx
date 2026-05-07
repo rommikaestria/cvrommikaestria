@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import Skills from './components/Skills'
 import Books from './components/Books'
 import Footer from './components/Footer'
 
@@ -15,7 +14,6 @@ function App() {
         <Hero />
         <About />
         <Experience />
-        <Skills />
         <Books />
       </main>
       <Footer />
