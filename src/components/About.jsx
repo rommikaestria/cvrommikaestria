@@ -9,17 +9,17 @@ const About = () => {
           <h2 className="text-3xl font-bold text-dark mb-2">Tentang Saya</h2>
           <div className="w-20 h-1 bg-navy rounded"></div>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-12">
           <div className="md:col-span-2 space-y-6 text-gray-600 leading-relaxed text-lg">
             <p>
-              Saya adalah Dosen di STMIK Palangkaraya dan praktisi Teknologi Informasi dengan latar belakang pendidikan Magister Komputer Teknik Komputer. 
+              Saya adalah Dosen di STMIK Palangkaraya dan praktisi Teknologi Informasi dengan latar belakang pendidikan Magister Komputer Teknik Komputer.
             </p>
             <p>
-              Saya memiliki keahlian mendalam dalam arsitektur data warehouse dan pengembangan full-stack. Sebagai akademisi dan penulis aktif buku-buku teknologi, saya berfokus pada berbagi ilmu untuk menjembatani teori sistem informasi dengan implementasi teknologi terkini kepada masyarakat luas.
+              Saya memiliki keahlian mendalam dalam arsitektur data dan pengembangan full-stack. Sebagai seorang pendidik dan aktif menulis , saya berfokus pada berbagi ilmu untuk menjembatani teori sistem informasi dengan implementasi teknologi terkini kepada masyarakat luas.
             </p>
           </div>
-          
+
           <div className="bg-light p-6 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-xl font-semibold text-dark mb-4 flex items-center gap-2">
               <FiBookOpen className="text-navy" /> Pendidikan

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiHome, FiUser, FiBriefcase, FiCode, FiBook, FiFileText } from 'react-icons/fi';
+import { FiHome, FiUser, FiAward, FiPenTool, FiFileText } from 'react-icons/fi';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -7,8 +7,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Profil', href: '#about', icon: FiUser },
     { name: 'Catatan', href: '#notes', icon: FiFileText },
-    { name: 'Karir', href: '#experience', icon: FiBriefcase },
-    { name: 'Karya', href: '#books', icon: FiBook },
+    { name: 'Karir', href: '#experience', icon: FiAward },
+    { name: 'Karya', href: '#books', icon: FiPenTool },
   ];
 
   // Optional: Track active section for styling

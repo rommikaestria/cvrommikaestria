@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse md:flex-row items-center gap-12">
         <div className="flex-1 text-center md:text-left space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark leading-tight">
-            Hi, I'm <span className="text-navy">Rommi Kaestria</span>
+            Hi, Saya <span className="text-navy"><p>Rommi Kaestria</p></span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 font-medium">
             Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis Buku.
