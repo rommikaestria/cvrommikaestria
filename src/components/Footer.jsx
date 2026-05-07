@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark text-white pt-12 pb-24 md:pb-12 border-t border-gray-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        
+
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold mb-2">Rommi Kaestria</h2>
           <p className="text-gray-400 text-sm max-w-sm">
@@ -14,10 +14,10 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-4">
-          <a href="mailto:ketikode.official@gmail.com" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
+          <a href="mailto:rokafordev@gmail.com" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
             <FiMail size={20} />
           </a>
-          <a href="https://ketikode.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
+          <a href="https://www.google.com/search?q=rommi+kaestria&oq=rommi+kaestria&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYQdIBCTQxNTFqMGoxNagCCLACAfEFbVzqp_BoKJY&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
             <FiGlobe size={20} />
           </a>
           <a href="https://linkedin.com/in/rommi-kaestria" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
