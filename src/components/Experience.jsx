@@ -1,5 +1,9 @@
 import React from 'react';
 import { FiBriefcase } from 'react-icons/fi';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
 
 const Experience = () => {
   const experiences = [
@@ -60,29 +64,30 @@ const Experience = () => {
           <div className="w-20 h-1 bg-navy rounded mx-auto"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-8 mb-24">
-          {experiences.map((exp, index) => (
-            <div key={exp.title} className="flex gap-6">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700 shadow-sm text-navy dark:text-blue-400 z-10">
-                  <FiBriefcase size={20} />
-                </div>
-                {index !== experiences.length - 1 && (
-                  <div className="w-px h-full bg-gray-200 dark:bg-gray-700 my-2"></div>
-                )}
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex-1 hover:shadow-md transition-shadow">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-dark dark:text-white">{exp.title}</h3>
-                  <span className="text-sm font-medium text-navy dark:text-blue-300 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 px-3 py-1 rounded-full mt-2 md:mt-0 w-fit">
+        <div className="max-w-sm sm:max-w-md mx-auto mb-24 px-4 sm:px-0">
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            modules={[EffectCards]}
+            className="w-full h-auto"
+            loop={true}
+          >
+            {experiences.map((exp) => (
+              <SwiperSlide key={exp.title} className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="w-16 h-16 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 rounded-2xl flex items-center justify-center text-navy dark:text-blue-400">
+                    <FiBriefcase size={28} />
+                  </div>
+                  <span className="text-sm font-bold text-navy dark:text-blue-300 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 px-4 py-2 rounded-full">
                     {exp.year}
                   </span>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-4">{exp.company}</p>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{exp.description}</p>
-              </div>
-            </div>
-          ))}
+                <h3 className="text-2xl font-bold text-dark dark:text-white mb-2 leading-tight">{exp.title}</h3>
+                <p className="text-sm text-navy dark:text-blue-400 font-bold mb-6 uppercase tracking-wider">{exp.company}</p>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base">{exp.description}</p>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* Keahlian Section */}
