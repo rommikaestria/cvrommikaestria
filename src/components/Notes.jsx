@@ -33,7 +33,7 @@ const Notes = () => {
           <h2 className="text-3xl font-bold text-dark mb-2">Catatan & Perjalanan</h2>
           <div className="w-20 h-1 bg-navy rounded mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Kumpulan berita terkini, dokumentasi kegiatan, serta cerita perjalanan karir dan kehidupan saya.
+            Kalau ada catatan harian nanti saya taruh disini
           </p>
         </div>
 
