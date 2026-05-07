@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FiHome, FiUser, FiBriefcase, FiCode, FiBook } from 'react-icons/fi';
+import { FiHome, FiUser, FiBriefcase, FiCode, FiBook, FiFileText } from 'react-icons/fi';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
   const navLinks = [
     { name: 'Profil', href: '#about', icon: FiUser },
+    { name: 'Catatan', href: '#notes', icon: FiFileText },
     { name: 'Karir', href: '#experience', icon: FiBriefcase },
     { name: 'Karya', href: '#books', icon: FiBook },
   ];
@@ -13,7 +14,7 @@ const Navbar = () => {
   // Optional: Track active section for styling
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'books'];
+      const sections = ['about', 'notes', 'experience', 'books'];
       let current = '';
       
       for (const section of sections) {

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Notes from './components/Notes'
 import Experience from './components/Experience'
 import Books from './components/Books'
 import Footer from './components/Footer'
@@ -13,6 +14,7 @@ function App() {
       <main className="flex-grow pt-16">
         <Hero />
         <About />
+        <Notes />
         <Experience />
         <Books />
       </main>
