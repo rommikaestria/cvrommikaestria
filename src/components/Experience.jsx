@@ -64,7 +64,27 @@ const Experience = () => {
           <div className="w-20 h-1 bg-navy rounded mx-auto"></div>
         </div>
 
-        <div className="max-w-sm sm:max-w-md mx-auto mb-24 px-4 sm:px-0">
+        {/* Desktop View (Grid) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          {experiences.map((exp) => (
+            <div key={exp.title} className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 flex flex-col h-full">
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-16 h-16 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 rounded-2xl flex items-center justify-center text-navy dark:text-blue-400 flex-shrink-0">
+                  <FiBriefcase size={28} />
+                </div>
+                <span className="text-sm font-bold text-navy dark:text-blue-300 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 px-4 py-2 rounded-full whitespace-nowrap ml-4">
+                  {exp.year}
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-dark dark:text-white mb-2 leading-tight">{exp.title}</h3>
+              <p className="text-sm text-navy dark:text-blue-400 font-bold mb-6 uppercase tracking-wider">{exp.company}</p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base flex-grow">{exp.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile View (Swiper Cards) */}
+        <div className="md:hidden max-w-sm sm:max-w-md mx-auto mb-24 px-4 sm:px-0">
           <Swiper
             effect={'cards'}
             grabCursor={true}
@@ -75,10 +95,10 @@ const Experience = () => {
             {experiences.map((exp) => (
               <SwiperSlide key={exp.title} className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className="w-16 h-16 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 rounded-2xl flex items-center justify-center text-navy dark:text-blue-400">
+                  <div className="w-16 h-16 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 rounded-2xl flex items-center justify-center text-navy dark:text-blue-400 flex-shrink-0">
                     <FiBriefcase size={28} />
                   </div>
-                  <span className="text-sm font-bold text-navy dark:text-blue-300 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 px-4 py-2 rounded-full">
+                  <span className="text-sm font-bold text-navy dark:text-blue-300 bg-navy dark:bg-blue-900 bg-opacity-10 dark:bg-opacity-30 px-4 py-2 rounded-full whitespace-nowrap ml-4">
                     {exp.year}
                   </span>
                 </div>
