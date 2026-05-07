@@ -109,7 +109,15 @@ const Navbar = () => {
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="flex justify-around items-center h-[4.5rem] px-2">
-          <a href="#hero" className={`flex flex-col items-center justify-center w-full h-full transition-colors ${activeSection === '' ? 'text-navy' : 'text-gray-400 hover:text-gray-600'}`}>
+          <a 
+            href="#hero" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo(0, 0);
+              window.location.reload();
+            }}
+            className={`flex flex-col items-center justify-center w-full h-full transition-colors ${activeSection === '' ? 'text-navy' : 'text-gray-400 hover:text-gray-600'}`}
+          >
             <FiHome size={22} className={`mb-1 transition-transform ${activeSection === '' ? 'scale-110' : ''}`} />
             <span className="text-[10px] font-medium">Beranda</span>
           </a>
