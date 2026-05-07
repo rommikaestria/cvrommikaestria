@@ -76,9 +76,9 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto touch-pan-x md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
           {books.map((book) => (
-            <div key={book.title} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+            <div key={book.title} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-700">
                 <img
                   src={book.image}
@@ -113,7 +113,7 @@ const Showcase = () => {
 
           {/* Google Scholar QR Code */}
           <div
-            className="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-dashed border-gray-200 dark:border-gray-600 flex flex-col items-center justify-center text-center hover:border-navy dark:hover:border-blue-400 hover:shadow-xl transition-all duration-300 cursor-pointer group min-h-[400px]"
+            className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-dashed border-gray-200 dark:border-gray-600 flex flex-col items-center justify-center text-center hover:border-navy dark:hover:border-blue-400 hover:shadow-xl transition-all duration-300 cursor-pointer group min-h-[400px]"
             onClick={() => window.open('https://scholar.google.com/citations?user=_rRCa3wAAAAJ&hl=en', '_blank')}
           >
             <div className="w-40 h-40 bg-white dark:bg-gray-200 rounded-2xl flex items-center justify-center mb-6 p-2 shadow-sm group-hover:scale-110 transition-transform duration-500">
@@ -139,9 +139,9 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto touch-pan-x md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
           {videos.map((video) => (
-            <div key={video.videoId} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+            <div key={video.videoId} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
                 <img
                   src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
