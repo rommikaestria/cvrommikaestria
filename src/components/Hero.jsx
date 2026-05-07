@@ -12,7 +12,7 @@ const Hero = () => {
             <span className="text-navy dark:text-blue-400">Rommi Kaestria</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 font-medium">
-            Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis .
+            Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
             <a href="mailto:rokafordev@gmail.com" className="p-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 rounded-full shadow-sm hover:shadow transition-all border border-gray-100 dark:border-gray-700">

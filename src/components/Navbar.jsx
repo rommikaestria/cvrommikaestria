@@ -97,7 +97,7 @@ const Navbar = () => {
       {/* Dark Mode Toggle Mobile (Floating) */}
       <button 
         onClick={toggleTheme}
-        className="md:hidden fixed top-20 right-4 p-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-md z-40 transition-colors border border-gray-200 dark:border-gray-700"
+        className="md:hidden fixed bottom-24 right-4 p-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-lg z-40 transition-colors border border-gray-200 dark:border-gray-700"
         aria-label="Toggle Dark Mode"
       >
         {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}

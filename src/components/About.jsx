@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Tentang Saya</h2>
           <div className="w-20 h-1 bg-navy rounded"></div>
         </div>
@@ -16,7 +16,7 @@ const About = () => {
               Saya adalah Dosen di STMIK Palangkaraya dan praktisi Teknologi Informasi dengan latar belakang pendidikan Magister Komputer Teknik Komputer.
             </p>
             <p>
-              Saya memiliki keahlian mendalam dalam arsitektur data dan pengembangan full-stack. Sebagai seorang pendidik dan aktif menulis , saya berfokus pada berbagi ilmu untuk menjembatani teori sistem informasi dengan implementasi teknologi terkini kepada masyarakat luas.
+              Saya memiliki keahlian mendalam dalam arsitektur data dan pengembangan full-stack. Sebagai seorang pendidik dan aktif menulis, saya berfokus pada berbagi ilmu untuk menjembatani teori sistem informasi dengan implementasi teknologi terkini kepada masyarakat luas.
             </p>
           </div>
 
