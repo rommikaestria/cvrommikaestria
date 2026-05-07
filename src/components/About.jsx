@@ -11,7 +11,7 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 space-y-6 text-gray-600 leading-relaxed text-lg">
+          <div className="md:col-span-2 space-y-6 text-gray-600 leading-relaxed text-lg text-justify">
             <p>
               Saya adalah Dosen di STMIK Palangkaraya dan praktisi Teknologi Informasi dengan latar belakang pendidikan Magister Komputer Teknik Komputer.
             </p>

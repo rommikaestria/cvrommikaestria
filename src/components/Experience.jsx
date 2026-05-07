@@ -46,14 +46,14 @@ const Experience = () => {
     },
     {
       title: "Tools & Ecosystem",
-      skills: ["VSCode", "Excel / Google Sheet", "MongoDB", "Gemini AI Studio", "Google Antigravity", "Big Data Integration", "Cloud Computing"]
+      skills: ["VSCode", "Excel / Google Sheet", "MongoDB", "Big Data Integration", "Cloud Computing"]
     }
   ];
 
   return (
     <section id="experience" className="py-20 bg-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Pengalaman Kerja Section */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-dark mb-2">Pengalaman Kerja</h2>
@@ -97,8 +97,8 @@ const Experience = () => {
               <h3 className="text-xl font-semibold text-dark mb-6 text-center">{category.title}</h3>
               <div className="flex flex-wrap justify-center gap-2">
                 {category.skills.map((skill, idx) => (
-                  <span 
-                    key={idx} 
+                  <span
+                    key={idx}
                     className="px-4 py-2 bg-light text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm hover:border-navy hover:text-navy transition-colors"
                   >
                     {skill}
