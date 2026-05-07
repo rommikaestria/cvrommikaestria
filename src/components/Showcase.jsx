@@ -76,7 +76,7 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto touch-pan-x md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
+        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
           {books.map((book) => (
             <div key={book.title} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-700">
@@ -139,7 +139,7 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto touch-pan-x md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
+        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
           {videos.map((video) => (
             <div key={video.videoId} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
