@@ -2,40 +2,46 @@ import React from 'react';
 import { FiBook } from 'react-icons/fi';
 import QRCode from 'react-qr-code';
 
+import imgSistemInformasi from '../assets/SistemInformasiBerorientasiData.png';
+import imgKonsepDataWarehouseArsitektur from '../assets/KonsepDasarDataWarehouseArsitektur,IntegrasiData,danPenerapannya.png';
+import imgDasarKomputer from '../assets/DASARDASARKOMPUTERDANPEMROGRAMAN(TEORI DAN PRAKTIK).png';
+import imgKonsepDataWarehouse from '../assets/KonsepDasarDataWarehouse.png';
+import imgPemrogramanWeb from '../assets/PemrogramanWebdanAplikasiMobile.png';
+
 const Books = () => {
   const books = [
     {
       title: "Sistem Informasi Berorientasi Data",
       year: "2026",
-      image: "src/assets/SistemInformasiBerorientasiData.png",
+      image: imgSistemInformasi,
       description: "Membahas secara mendalam tentang perancangan, pengembangan, dan implementasi sistem informasi yang berpusat pada pengelolaan data berskala besar.",
       link: "https://www.ycmm.org/book-store/book-catalog-2026/sistem-informasi-berorientasi-data"
     },
     {
       title: "Konsep Dasar Data Warehouse: Arsitektur, Integrasi Data, dan Penerapannya",
       year: "2026",
-      image: "src/assets/KonsepDasarDataWarehouseArsitektur,IntegrasiData,danPenerapannya.png",
+      image: imgKonsepDataWarehouseArsitektur,
       description: "Panduan komprehensif mengenai arsitektur Data Warehouse, teknik integrasi data (ETL), serta studi kasus penerapannya di dunia industri.",
       link: "https://www.ycmm.org/book-store/book-catalog-2026/konsep-dasar-data-warehouse-arsitektur-integrasi-data-dan-penerapannya"
     },
     {
       title: "Dasar-Dasar Komputer dan Pemrograman (Teori dan Praktik)",
       year: "2025",
-      image: "src/assets/DASARDASARKOMPUTERDANPEMROGRAMAN(TEORI DAN PRAKTIK).png",
+      image: imgDasarKomputer,
       description: "Menghadirkan pemahaman dasar mengenai teknologi komputer, struktur inti, serta pengenalan algoritma dan bahasa pemrograman secara praktis.",
       link: "https://www.langsungterbit.com/product/dasar-dasar-komputer-dan-pemrograman-teori-dan-praktik/"
     },
     {
       title: "Konsep Dasar Data Warehouse",
       year: "2025",
-      image: "src/assets/KonsepDasarDataWarehouse.png",
+      image: imgKonsepDataWarehouse,
       description: "Pengantar fundamental mengenai apa itu Data Warehouse, fungsinya untuk Business Intelligence, dan tahapan awal pembangunannya.",
       link: "https://www.ycmm.org/book-store/book-catalog-2025/konsep-dasar-data-warehouse"
     },
     {
       title: "Pemrograman Web dan Aplikasi Mobile",
       year: "2024",
-      image: "src/assets/PemrogramanWebdanAplikasiMobile.png",
+      image: imgPemrogramanWeb,
       description: "Buku panduan praktis untuk menguasai pemrograman web modern dan pengembangan aplikasi mobile dari nol hingga siap publikasi.",
       link: "https://www.ycmm.org/book-store/book-catalog-2024/pemrograman-web-dan-aplikasi-mobile"
     }
