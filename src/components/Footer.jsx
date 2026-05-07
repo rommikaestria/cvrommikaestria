@@ -3,7 +3,7 @@ import { FiMail, FiGlobe, FiLinkedin, FiGithub } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white pt-12 pb-24 md:pb-12 border-t border-gray-800">
+    <footer className="bg-dark dark:bg-[#0f172a] text-white pt-12 pb-24 md:pb-12 border-t border-gray-800 dark:border-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
 
         <div className="text-center md:text-left">
