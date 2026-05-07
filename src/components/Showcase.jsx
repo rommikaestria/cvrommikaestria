@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiBook } from 'react-icons/fi';
+import { FiBook, FiPlayCircle } from 'react-icons/fi';
 import QRCode from 'react-qr-code';
 
 import imgSistemInformasi from '../assets/SistemInformasiBerorientasiData.png';
@@ -8,7 +8,25 @@ import imgDasarKomputer from '../assets/DASARDASARKOMPUTERDANPEMROGRAMAN(TEORI D
 import imgKonsepDataWarehouse from '../assets/KonsepDasarDataWarehouse.png';
 import imgPemrogramanWeb from '../assets/PemrogramanWebdanAplikasiMobile.png';
 
-const Books = () => {
+const Showcase = () => {
+  const videos = [
+    {
+      title: "Data Normalization Fundamentals",
+      year: "Terbaru",
+      videoId: "5-lcz1L7dnI",
+    },
+    {
+      title: "Dokumentasi materi perkuliahan Pengenalan IP Address",
+      year: "Materi",
+      videoId: "2S81aMjeC5U",
+    },
+    {
+      title: "Samudra Data pada SQL dan NoSQL",
+      year: "Materi",
+      videoId: "kAMDvuj4GMc",
+    }
+  ];
+
   const books = [
     {
       title: "Sistem Informasi Berorientasi Data",
@@ -51,10 +69,10 @@ const Books = () => {
     <section id="books" className="py-20 bg-light dark:bg-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Karya Buku</h2>
+          <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Karya</h2>
           <div className="w-20 h-1 bg-navy rounded mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Sebagai bentuk kontribusi dalam bidang akademik dan praktisi, berikut adalah beberapa buku teknologi yang telah diterbitkan.
+            Sebagai bentuk kontribusi Saya dalam bidang akademik dan praktisi, berikut ini adalah apa saja yang bisa saya berikan untuk berbagi ilmu bersama anda semua.
           </p>
         </div>
 
@@ -111,9 +129,66 @@ const Books = () => {
             </p>
           </div>
         </div>
+
+        {/* Pembatas / Header Video */}
+        <div className="mt-24 mb-16 text-center">
+          <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Karya Video</h2>
+          <div className="w-20 h-1 bg-red-600 rounded mx-auto mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Berbagi wawasan seputar teknologi, tutorial, dan edukasi melalui kanal YouTube <a href="https://www.youtube.com/@the.room.40" target="_blank" rel="noreferrer" className="text-red-600 font-bold hover:underline">@the.room.40</a>.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {videos.map((video) => (
+            <div key={video.videoId} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+              <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
+                <img
+                  src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
+                  alt={video.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 z-20">
+                  <FiPlayCircle className="text-white drop-shadow-md" size={64} />
+                </div>
+                <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-red-600 dark:text-red-400 shadow-sm z-30">
+                  {video.year}
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-6 line-clamp-2" title={video.title}>
+                    {video.title}
+                  </h3>
+                </div>
+                <a
+                  href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-600 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+                >
+                  <FiPlayCircle size={16} /> Tonton Video
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-12 flex justify-center">
+          <a
+            href="https://www.youtube.com/@the.room.40?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-red-600 text-white hover:bg-red-700 rounded-full text-base font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-3"
+          >
+            <FiPlayCircle size={20} /> Melihat Video Lainnya
+          </a>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Books;
+export default Showcase;

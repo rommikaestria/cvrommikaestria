@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Notes from './components/Notes'
 import Experience from './components/Experience'
-import Books from './components/Books'
+import Showcase from './components/Showcase'
 import Footer from './components/Footer'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <About />
         <Notes />
         <Experience />
-        <Books />
+        <Showcase />
       </main>
       <Footer />
     </div>
