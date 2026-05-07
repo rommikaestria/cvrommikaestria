@@ -1,6 +1,8 @@
 import React from 'react';
 import { FiBook, FiPlayCircle } from 'react-icons/fi';
 import QRCode from 'react-qr-code';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import imgSistemInformasi from '../assets/SistemInformasiBerorientasiData.png';
 import imgKonsepDataWarehouseArsitektur from '../assets/KonsepDasarDataWarehouseArsitektur,IntegrasiData,danPenerapannya.png';
@@ -65,6 +67,93 @@ const Showcase = () => {
     }
   ];
 
+  const renderBookCard = (book) => (
+    <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full w-full">
+      <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-700">
+        <img
+          src={book.image}
+          alt={book.title}
+          loading="lazy"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy dark:text-blue-400 shadow-sm">
+          {book.year}
+        </div>
+      </div>
+      <div className="p-6 flex flex-col flex-1 justify-between">
+        <div>
+          <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-3 line-clamp-2" title={book.title}>
+            {book.title}
+          </h3>
+          <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+            {book.description}
+          </p>
+        </div>
+        <a
+          href={book.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-3 px-4 bg-navy dark:bg-blue-900 bg-opacity-5 dark:bg-opacity-20 text-navy dark:text-blue-300 hover:bg-navy dark:hover:bg-blue-800 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+        >
+          <FiBook size={16} /> Lihat Detail Buku
+        </a>
+      </div>
+    </div>
+  );
+
+  const renderGoogleScholar = () => (
+    <div
+      className="bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-dashed border-gray-200 dark:border-gray-600 flex flex-col items-center justify-center text-center hover:border-navy dark:hover:border-blue-400 hover:shadow-xl transition-all duration-300 cursor-pointer group h-full min-h-[400px] w-full"
+      onClick={() => window.open('https://scholar.google.com/citations?user=_rRCa3wAAAAJ&hl=en', '_blank')}
+    >
+      <div className="w-40 h-40 bg-white dark:bg-gray-200 rounded-2xl flex items-center justify-center mb-6 p-2 shadow-sm group-hover:scale-110 transition-transform duration-500">
+        <QRCode
+          value="https://scholar.google.com/citations?user=_rRCa3wAAAAJ&hl=en"
+          size={144}
+          style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+        />
+      </div>
+      <h3 className="text-lg font-bold text-dark dark:text-white mb-2">Google Scholar</h3>
+      <p className="text-sm text-gray-500 dark:text-gray-400 font-medium group-hover:text-navy dark:group-hover:text-blue-400 transition-colors px-4">
+        Scan atau klik untuk melihat daftar publikasi dan jurnal lengkap
+      </p>
+    </div>
+  );
+
+  const renderVideoCard = (video) => (
+    <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full w-full">
+      <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
+        <img
+          src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
+          alt={video.title}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 z-20">
+          <FiPlayCircle className="text-white drop-shadow-md" size={64} />
+        </div>
+        <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-red-600 dark:text-red-400 shadow-sm z-30">
+          {video.year}
+        </div>
+      </div>
+      <div className="p-6 flex flex-col flex-1 justify-between">
+        <div>
+          <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-6 line-clamp-2" title={video.title}>
+            {video.title}
+          </h3>
+        </div>
+        <a
+          href={`https://www.youtube.com/watch?v=${video.videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-3 px-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-600 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+        >
+          <FiPlayCircle size={16} /> Tonton Video
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <section id="books" className="py-20 bg-light dark:bg-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,58 +165,34 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
+        {/* Desktop Grid (md and up) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {books.map((book) => (
-            <div key={book.title} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-              <div className="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-700">
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy dark:text-blue-400 shadow-sm">
-                  {book.year}
-                </div>
-              </div>
-              <div className="p-6 flex flex-col flex-1 justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-3 line-clamp-2" title={book.title}>
-                    {book.title}
-                  </h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
-                    {book.description}
-                  </p>
-                </div>
-                <a
-                  href={book.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 px-4 bg-navy dark:bg-blue-900 bg-opacity-5 dark:bg-opacity-20 text-navy dark:text-blue-300 hover:bg-navy dark:hover:bg-blue-800 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
-                >
-                  <FiBook size={16} /> Lihat Detail Buku
-                </a>
-              </div>
-            </div>
+            <React.Fragment key={book.title}>
+              {renderBookCard(book)}
+            </React.Fragment>
           ))}
+          {renderGoogleScholar()}
+        </div>
 
-          {/* Google Scholar QR Code */}
-          <div
-            className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 border-dashed border-gray-200 dark:border-gray-600 flex flex-col items-center justify-center text-center hover:border-navy dark:hover:border-blue-400 hover:shadow-xl transition-all duration-300 cursor-pointer group min-h-[400px]"
-            onClick={() => window.open('https://scholar.google.com/citations?user=_rRCa3wAAAAJ&hl=en', '_blank')}
+        {/* Mobile Infinity Slider (below md) */}
+        <div className="block md:hidden -mx-4 pb-8">
+          <Swiper
+            loop={true}
+            slidesPerView={1.1}
+            spaceBetween={20}
+            centeredSlides={true}
+            className="w-full px-4"
           >
-            <div className="w-40 h-40 bg-white dark:bg-gray-200 rounded-2xl flex items-center justify-center mb-6 p-2 shadow-sm group-hover:scale-110 transition-transform duration-500">
-              <QRCode
-                value="https://scholar.google.com/citations?user=_rRCa3wAAAAJ&hl=en"
-                size={144}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              />
-            </div>
-            <h3 className="text-lg font-bold text-dark dark:text-white mb-2">Google Scholar</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium group-hover:text-navy dark:group-hover:text-blue-400 transition-colors px-4">
-              Scan atau klik untuk melihat daftar publikasi dan jurnal lengkap
-            </p>
-          </div>
+            {books.map((book) => (
+              <SwiperSlide key={book.title} className="h-auto pb-2">
+                {renderBookCard(book)}
+              </SwiperSlide>
+            ))}
+            <SwiperSlide className="h-auto pb-2">
+              {renderGoogleScholar()}
+            </SwiperSlide>
+          </Swiper>
         </div>
 
         {/* Pembatas / Header Video */}
@@ -139,40 +204,30 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="flex flex-nowrap w-full max-w-full overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-8 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
+        {/* Desktop Grid (md and up) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (
-            <div key={video.videoId} className="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-              <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
-                <img
-                  src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
-                  alt={video.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 z-20">
-                  <FiPlayCircle className="text-white drop-shadow-md" size={64} />
-                </div>
-                <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-red-600 dark:text-red-400 shadow-sm z-30">
-                  {video.year}
-                </div>
-              </div>
-              <div className="p-6 flex flex-col flex-1 justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-6 line-clamp-2" title={video.title}>
-                    {video.title}
-                  </h3>
-                </div>
-                <a
-                  href={`https://www.youtube.com/watch?v=${video.videoId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 px-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-600 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
-                >
-                  <FiPlayCircle size={16} /> Tonton Video
-                </a>
-              </div>
-            </div>
+            <React.Fragment key={video.videoId}>
+              {renderVideoCard(video)}
+            </React.Fragment>
           ))}
+        </div>
+
+        {/* Mobile Infinity Slider (below md) */}
+        <div className="block md:hidden -mx-4 pb-8">
+          <Swiper
+            loop={true}
+            slidesPerView={1.1}
+            spaceBetween={20}
+            centeredSlides={true}
+            className="w-full px-4"
+          >
+            {videos.map((video) => (
+              <SwiperSlide key={video.videoId} className="h-auto pb-2">
+                {renderVideoCard(video)}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* CTA Button */}
