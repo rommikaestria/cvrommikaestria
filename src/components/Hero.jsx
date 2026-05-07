@@ -11,7 +11,7 @@ const Hero = () => {
             Hi, Saya <span className="text-navy"><p>Rommi Kaestria</p></span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 font-medium">
-            Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis Buku.
+            Educontent Creator, Dosen STMIK Palangkaraya, Praktisi IT, & Penulis .
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
             <a href="mailto:ketikode.official@gmail.com" className="p-3 bg-white text-gray-700 hover:text-navy rounded-full shadow-sm hover:shadow transition-all border border-gray-100">
@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
           <div className="pt-6">
             <a href="#about" className="inline-block px-8 py-3 bg-navy text-white font-medium rounded-lg shadow-md hover:bg-blue-900 transition-colors">
-              Kenali Lebih Jauh
+              Tentang Saya
             </a>
           </div>
         </div>
