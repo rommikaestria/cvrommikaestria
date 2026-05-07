@@ -5,10 +5,10 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
   const navLinks = [
-    { name: 'About', href: '#about', icon: FiUser },
-    { name: 'Experience', href: '#experience', icon: FiBriefcase },
-    { name: 'Skills', href: '#skills', icon: FiCode },
-    { name: 'Books', href: '#books', icon: FiBook },
+    { name: 'Profil', href: '#about', icon: FiUser },
+    { name: 'Karir', href: '#experience', icon: FiBriefcase },
+    { name: 'Keahlian', href: '#skills', icon: FiCode },
+    { name: 'Buku', href: '#books', icon: FiBook },
   ];
 
   // Optional: Track active section for styling
@@ -72,7 +72,7 @@ const Navbar = () => {
         <div className="flex justify-around items-center h-[4.5rem] px-2">
           <a href="#" className={`flex flex-col items-center justify-center w-full h-full transition-colors ${activeSection === '' ? 'text-navy' : 'text-gray-400 hover:text-gray-600'}`}>
             <FiHome size={22} className={`mb-1 transition-transform ${activeSection === '' ? 'scale-110' : ''}`} />
-            <span className="text-[10px] font-medium">Home</span>
+            <span className="text-[10px] font-medium">Beranda</span>
           </a>
           
           {navLinks.map((link) => {
