@@ -36,9 +36,9 @@ const Hero = () => {
         </div>
         <div className="flex-1 flex justify-center md:justify-end">
           <div className="relative w-64 h-64 md:w-80 md:h-80">
-            <div className="absolute inset-0 bg-navy bg-opacity-10 rounded-full blur-2xl transform scale-110"></div>
+            <div className="absolute inset-0 bg-navy bg-opacity-10 rounded-2xl blur-2xl transform scale-110"></div>
             {/* Profile Image */}
-            <div className="relative w-full h-full rounded-full border-4 border-white dark:border-gray-800 shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+            <div className="relative w-full h-full rounded-2xl border-4 border-white dark:border-gray-800 shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
               <img src={fotoRommi} alt="Rommi Kaestria" className="w-full h-full object-cover" />
             </div>
           </div>
