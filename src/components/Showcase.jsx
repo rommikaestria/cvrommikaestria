@@ -157,7 +157,7 @@ const Showcase = () => {
   return (
     <section id="books" className="py-20 bg-light dark:bg-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className="mb-8 md:mb-16 text-center">
           <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Karya</h2>
           <div className="w-20 h-1 bg-navy rounded mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -196,7 +196,7 @@ const Showcase = () => {
         </div>
 
         {/* Pembatas / Header Video */}
-        <div className="mt-24 mb-16 text-center">
+        <div className="mt-16 md:mt-24 mb-8 md:mb-16 text-center">
           <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Karya Video</h2>
           <div className="w-20 h-1 bg-red-600 rounded mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
