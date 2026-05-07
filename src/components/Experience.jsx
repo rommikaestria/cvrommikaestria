@@ -90,7 +90,6 @@ const Experience = () => {
             grabCursor={true}
             modules={[EffectCards]}
             className="w-full h-auto"
-            loop={true}
           >
             {experiences.map((exp) => (
               <SwiperSlide key={exp.title} className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col h-full">
