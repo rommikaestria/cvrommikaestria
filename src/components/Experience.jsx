@@ -62,7 +62,7 @@ const Experience = () => {
 
         <div className="max-w-3xl mx-auto space-y-8 mb-24">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-6">
+            <div key={exp.title} className="flex gap-6">
               <div className="flex flex-col items-center">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-200 shadow-sm text-navy z-10">
                   <FiBriefcase size={20} />
@@ -92,13 +92,13 @@ const Experience = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+          {skillCategories.map((category) => (
+            <div key={category.title} className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="text-xl font-semibold text-dark mb-6 text-center">{category.title}</h3>
               <div className="flex flex-wrap justify-center gap-2">
-                {category.skills.map((skill, idx) => (
+                {category.skills.map((skill) => (
                   <span
-                    key={idx}
+                    key={skill}
                     className="px-4 py-2 bg-light text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm hover:border-navy hover:text-navy transition-colors"
                   >
                     {skill}

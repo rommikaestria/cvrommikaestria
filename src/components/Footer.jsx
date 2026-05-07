@@ -17,7 +17,7 @@ const Footer = () => {
           <a href="mailto:rokafordev@gmail.com" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
             <FiMail size={20} />
           </a>
-          <a href="https://www.google.com/search?q=rommi+kaestria&oq=rommi+kaestria&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYQdIBCTQxNTFqMGoxNagCCLACAfEFbVzqp_BoKJY&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
+          <a href="https://www.google.com/search?q=rommi+kaestria" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
             <FiGlobe size={20} />
           </a>
           <a href="https://linkedin.com/in/rommi-kaestria" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 hover:bg-navy rounded-full transition-colors">
