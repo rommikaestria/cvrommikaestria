@@ -28,8 +28,8 @@ const Hero = () => {
               <FiGithub size={22} />
             </a>
           </div>
-          <div className="pt-6">
-            <a href="#about" className="inline-block px-8 py-3 bg-navy text-white font-medium rounded-lg shadow-md hover:bg-blue-900 transition-colors">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
+            <a href="#about" className="inline-block px-8 py-3.5 bg-navy text-white font-medium rounded-xl shadow-md hover:bg-blue-900 transition-colors">
               Tentang Saya
             </a>
           </div>
