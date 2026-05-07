@@ -222,8 +222,8 @@ const Showcase = () => {
             centeredSlides={true}
             className="w-full px-4"
           >
-            {videos.map((video) => (
-              <SwiperSlide key={video.videoId} className="h-auto pb-2">
+            {[...videos, ...videos].map((video, idx) => (
+              <SwiperSlide key={`${video.videoId}-${idx}`} className="h-auto pb-2">
                 {renderVideoCard(video)}
               </SwiperSlide>
             ))}
