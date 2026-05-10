@@ -87,7 +87,12 @@ const Experience = () => {
     {
       title: "Jasa Pembuatan Video Edukasi IT",
       skills: ["Tutorial video singkat (TikTok / Reels)", "Video penjelasan konsep pemrograman", "Video review tools / library", "Video case study implementasi sistem"]
-    }
+    },
+    {
+      title: "Jasa Penulisan Artikel",
+      skills: ["Artikel blog (teknis / non-teknis)", "Konten website / landing page", "Dokumentasi teknis", "E-book / modul pembelajaran", "Writing Services", "Copywriting"]
+    },
+
   ];
 
   return (
