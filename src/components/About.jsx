@@ -18,23 +18,30 @@ const About = () => {
             <p>
               Saya memiliki keahlian mendalam dalam arsitektur data dan pengembangan full-stack. Sebagai seorang pendidik dan aktif menulis, saya berfokus pada berbagi ilmu untuk menjembatani teori sistem informasi dengan implementasi teknologi terkini kepada masyarakat luas.
             </p>
-          </div>
-
-          <div className="bg-light dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-xl font-semibold text-dark dark:text-white mb-4 flex items-center gap-2">
-              <FiBookOpen className="text-navy dark:text-blue-400" /> Pendidikan
-            </h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-dark dark:text-white">Magister Komputer (M.Kom.)</h4>
-                <p className="text-sm text-navy dark:text-blue-400">Teknik Komputer</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Universitas Amikom Jogjakarta</p>
-              </div>
-              <div className="h-px bg-gray-200 dark:bg-gray-700 w-full"></div>
-              <div>
-                <h4 className="font-medium text-dark dark:text-white">Sarjana Komputer (S.Kom.)</h4>
-                <p className="text-sm text-navy dark:text-blue-400">Sistem Informasi</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">STMIK Palangkaraya</p>
+            <p>
+              Aktivitas Tridharma Perguruan Tinggi yang saya jalani meliputi mengajar, meneliti, dan pengabdian masyarakat.
+            </p>
+            <p>Saya seorang pengembang web yang berbasis di Palangka Raya, Indonesia.
+              Saya mengkhususkan diri dalam membangun situs web dan aplikasi web modern menggunakan kode yang bersih, arsitektur yang skalabel, dan desain basis data yang efisien.
+              Dengan latar belakang sebagai dosen di bidang Ilmu Komputer, saya menggabungkan keahlian teknis dengan kemampuan komunikasi dan pemecahan masalah yang kuat.
+              Saya membantu klien mengubah ide menjadi produk digital yang fungsional, andal, dan elegan.</p>
+            <p>Fokus teknologi: Pengembangan web, rekayasa backend, sistem basis data.</p>
+            <div className="bg-light dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-semibold text-dark dark:text-white mb-4 flex items-center gap-2">
+                <FiBookOpen className="text-navy dark:text-blue-400" /> Pendidikan
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium text-dark dark:text-white">Magister Komputer (M.Kom.)</h4>
+                  <p className="text-sm text-navy dark:text-blue-400">Teknik Komputer</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Universitas Amikom Jogjakarta</p>
+                </div>
+                <div className="h-px bg-gray-200 dark:bg-gray-700 w-full"></div>
+                <div>
+                  <h4 className="font-medium text-dark dark:text-white">Sarjana Komputer (S.Kom.)</h4>
+                  <p className="text-sm text-navy dark:text-blue-400">Sistem Informasi</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">STMIK Palangkaraya</p>
+                </div>
               </div>
             </div>
           </div>

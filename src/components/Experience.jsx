@@ -41,12 +41,20 @@ const Experience = () => {
 
   const skillCategories = [
     {
-      title: "Languages",
-      skills: ["Python", "SQL", "NoSQL", "PHP", "Javascript"]
+      title: "Web Development",
+      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB", "MySQL", "PHP", "Laravel", "Flutter", "Streamlit", "Python", "SQL", "NoSQL", "Big Data Integration", "Cloud Computing", "VSCode", "Excel / Google Sheet"]
     },
     {
-      title: "Frameworks",
-      skills: ["FastAPI", "Flutter", "Streamlit", "Laravel"]
+      title: "Web Applications",
+      skills: ["Dashboard admin", "Sistem informasi", "CRUD apps", "API backend"]
+    },
+    {
+      title: "Backend Development",
+      skills: ["PHP", "Laravel", "Node.js", "Python API"]
+    },
+    {
+      title: "Data Science",
+      skills: ["Python", "SQL", "NoSQL", "Big Data Integration", "Cloud Computing"]
     },
     {
       title: "Tools & Ecosystem",
@@ -110,7 +118,7 @@ const Experience = () => {
         </div>
 
         {/* Keahlian Section */}
-        <div className="mb-12 text-center">
+        <div className="mb-6 text-center">
           <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Keahlian</h2>
           <div className="w-20 h-1 bg-navy rounded mx-auto"></div>
         </div>
