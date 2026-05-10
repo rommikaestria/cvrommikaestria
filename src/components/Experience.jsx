@@ -59,6 +59,34 @@ const Experience = () => {
     {
       title: "Tools & Ecosystem",
       skills: ["VSCode", "Excel / Google Sheet", "MongoDB", "Big Data Integration", "Cloud Computing"]
+    },
+    {
+      title: "Kelas Online / Workshop",
+      skills: ["Kelas Web Development untuk pemula", "Kelas Database Design", "Kelas Git & GitHub", "Kelas Membuat API", "Kelas Membuat Website UMKM"]
+    },
+    {
+      title: "Mentor atau Pembimbing Proyek",
+      skills: ["Pembimbing Skripsi / Tugas Akhir", "Mentor Startup Digital untuk Kampus", "Pembimbing Kompetisi Pemrograman", "Mentor Komunitas IT Lokal"]
+    },
+    {
+      title: "Jasa Konsultasi Teknologi",
+      skills: ["Paham database", "Paham arsitektur sistem", "Paham kebutuhan kampus/instansi", "Punya pengalaman mengajar", "Konsultasi pembuatan sistem informasi", "Konsultasi database (desain, optimasi, keamanan)", "Konsultasi digitalisasi kampus / UMKM", "Konsultasi pemilihan teknologi"]
+    },
+    {
+      title: "Membuat Produk Digital",
+      skills: ["Template website (HTML, Bootstrap, Tailwind)", "Template dashboard admin", "Template landing page", "Template CV modern", "Template modul pembelajaran IT", "Template database schema"]
+    },
+    {
+      title: "Membuat Konten Edukasi (YouTube / TikTok / Instagram)",
+      skills: ["Ads", "Affiliate hosting/domain", "Jual template", "Jual kelas"]
+    },
+    {
+      title: "Jasa Pembuatan Dokumentasi Teknis",
+      skills: ["Dokumentasi API", "Dokumentasi sistem", "Dokumentasi database", "Panduan penggunaan aplikasi"]
+    },
+    {
+      title: "Jasa Pembuatan Video Edukasi IT",
+      skills: ["Tutorial video singkat (TikTok / Reels)", "Video penjelasan konsep pemrograman", "Video review tools / library", "Video case study implementasi sistem"]
     }
   ];
 
