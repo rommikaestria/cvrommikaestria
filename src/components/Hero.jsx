@@ -35,11 +35,38 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
+          {/* Container Utama dengan Perspective */}
+          <div className="relative w-64 h-64 md:w-80 md:h-80 [perspective:1000px] group">
+
+            {/* Elemen Bayangan/Glow tetap di sini */}
             <div className="absolute inset-0 bg-navy bg-opacity-10 rounded-2xl blur-2xl transform scale-110"></div>
-            {/* Profile Image */}
-            <div className="relative w-full h-full rounded-2xl border-4 border-white dark:border-gray-800 shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+
+            {/* Profile Image Container yang akan berotasi */}
+            <div className="relative w-full h-full rounded-2xl border-4 border-white dark:border-gray-800 shadow-xl 
+                    bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden
+                    transition-transform duration-500 ease-out
+                    
+                    /* Variabel default agar tidak patah saat transisi */
+                    [transform:rotateX(0deg)_rotateY(0deg)]
+                    
+                    /* Logika berdasarkan area mana yang di-hover */
+                    group-has-[#top-left:hover]:[transform:rotateX(10deg)_rotateY(-10deg)]
+                    group-has-[#top-right:hover]:[transform:rotateX(10deg)_rotateY(10deg)]
+                    group-has-[#bottom-left:hover]:[transform:rotateX(-10deg)_rotateY(-10deg)]
+                    group-has-[#bottom-right:hover]:[transform:rotateX(-10deg)_rotateY(10deg)]
+                    
+                    /* Efek saat diklik */
+                    active:scale-95">
+
               <img src={fotoRommi} alt="Rommi Kaestria" className="w-full h-full object-cover" />
+
+              {/* Invisible Overlays: Pembagi 4 Sudut */}
+              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 z-10">
+                <div id="top-left" className="w-full h-full"></div>
+                <div id="top-right" className="w-full h-full"></div>
+                <div id="bottom-left" className="w-full h-full"></div>
+                <div id="bottom-right" className="w-full h-full"></div>
+              </div>
             </div>
           </div>
         </div>
