@@ -40,9 +40,9 @@ const Notes = () => {
           {/* Google Info Widgets */}
           <div className="flex flex-wrap justify-center gap-4">
             {/* Weather Widget */}
-            <a 
-              href="https://www.google.com/search?q=cuaca+palangka+raya" 
-              target="_blank" 
+            <a
+              href="https://www.google.com/search?q=cuaca+palangka+raya"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
             >
@@ -54,9 +54,9 @@ const Notes = () => {
             </a>
 
             {/* Currency Widget */}
-            <a 
-              href="https://www.google.com/search?q=usd+to+idr" 
-              target="_blank" 
+            <a
+              href="https://www.google.com/search?q=usd+to+idr"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
             >
