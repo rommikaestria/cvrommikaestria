@@ -309,12 +309,7 @@ const Notes = () => {
 
               {/* App Header/Nav */}
               <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-none">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                    </svg>
-                  </div>
+                <div className="flex items-center w-full sm:w-auto">
                   <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
                     CatatanSaku
                   </h3>
@@ -333,7 +328,7 @@ const Notes = () => {
                   </svg>
                 </div>
 
-                <div className="relative w-auto z-10 flex justify-end">
+                <div className="relative w-full sm:w-auto z-10 flex justify-center sm:justify-end">
                   <button
                     onClick={() => openModal(null, 'note')}
                     title="Tambah Catatan"
