@@ -308,14 +308,14 @@ const Notes = () => {
             <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100">
 
               {/* App Header/Nav */}
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center w-full sm:w-auto">
+              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 p-4 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
+                <div className="flex items-center order-1">
                   <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
                     CatatanSaku
                   </h3>
                 </div>
 
-                <div className="relative w-full sm:max-w-md">
+                <div className="relative w-full sm:flex-1 sm:max-w-md order-3 sm:order-2">
                   <input
                     type="text"
                     placeholder="Cari catatan atau tugas..."
@@ -328,7 +328,7 @@ const Notes = () => {
                   </svg>
                 </div>
 
-                <div className="relative w-full sm:w-auto z-10 flex justify-center sm:justify-end">
+                <div className="relative w-auto z-10 flex justify-end order-2 sm:order-3">
                   <button
                     onClick={() => openModal(null, 'note')}
                     title="Tambah Catatan"
