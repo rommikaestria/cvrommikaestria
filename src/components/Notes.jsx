@@ -4,6 +4,8 @@ import { FiSun, FiTrendingUp } from 'react-icons/fi';
 const Notes = () => {
   const [weatherTemp, setWeatherTemp] = useState('...');
   const [exchangeRate, setExchangeRate] = useState('...');
+  const [isRefreshingWeather, setIsRefreshingWeather] = useState(false);
+  const [isRefreshingKurs, setIsRefreshingKurs] = useState(false);
 
   // -- Notes App State --
   const [notes, setNotes] = useState([]);
@@ -14,33 +16,54 @@ const Notes = () => {
 
   const noteBodyRef = useRef(null);
 
-  useEffect(() => {
-    // Ambil data cuaca realtime (Palangka Raya) menggunakan Open-Meteo API
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=-2.21&longitude=113.92&current_weather=true', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.current_weather) {
-          setWeatherTemp(`${Math.round(data.current_weather.temperature)}°C`);
-        }
-      })
-      .catch(() => setWeatherTemp('31°C')); // Fallback jika gagal
+  const fetchWeather = async () => {
+    setIsRefreshingWeather(true);
+    try {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-2.21&longitude=113.92&current_weather=true', { cache: 'no-store' });
+      const data = await res.json();
+      if (data && data.current_weather) {
+        setWeatherTemp(`${Math.round(data.current_weather.temperature)}°C`);
+      }
+    } catch (err) {
+      setWeatherTemp('31°C');
+    } finally {
+      setIsRefreshingWeather(false);
+    }
+  };
 
-    // Ambil data kurs realtime (USD ke IDR) menggunakan ExchangeRate-API
-    fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.rates && data.rates.IDR) {
-          setExchangeRate(new Intl.NumberFormat('id-ID').format(Math.round(data.rates.IDR)));
+  const fetchKurs = async () => {
+    setIsRefreshingKurs(true);
+    try {
+      const res = await fetch('https://api.coinbase.com/v2/exchange-rates?currency=USD', { cache: 'no-store' });
+      const data = await res.json();
+      if (data && data.data && data.data.rates && data.data.rates.IDR) {
+        setExchangeRate(new Intl.NumberFormat('id-ID').format(Math.round(data.data.rates.IDR)));
+      }
+    } catch (err) {
+      // Fallback API if coinbase fails
+      try {
+        const res2 = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
+        const data2 = await res2.json();
+        if (data2 && data2.rates && data2.rates.IDR) {
+          setExchangeRate(new Intl.NumberFormat('id-ID').format(Math.round(data2.rates.IDR)));
         }
-      })
-      .catch(() => setExchangeRate('15.500')); // Fallback jika gagal
+      } catch (err2) {
+        setExchangeRate('15.500');
+      }
+    } finally {
+      setIsRefreshingKurs(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather();
+    fetchKurs();
 
     // Initialize notes from local storage
     const savedNotes = localStorage.getItem('sakuNotes');
     if (savedNotes) {
       setNotes(JSON.parse(savedNotes));
     }
-
   }, []);
 
   const openModal = (id = null, type = 'note') => {
@@ -271,36 +294,39 @@ const Notes = () => {
             Kalau ada catatan harian nanti saya taruh disini
           </p>
 
-          {/* Google Info Widgets */}
+          {/* Info Widgets (Self-Refreshing) */}
           <div className="flex flex-wrap justify-center gap-4">
             {/* Weather Widget */}
-            <a
-              href="https://www.google.com/search?q=cuaca+palangka+raya"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
+            <button
+              onClick={fetchWeather}
+              disabled={isRefreshingWeather}
+              title="Klik untuk perbarui cuaca"
+              className="flex items-center gap-2.5 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 disabled:opacity-70 active:scale-95"
             >
-              <FiSun size={20} className="text-yellow-500" />
+              <FiSun size={20} className={`text-yellow-500 ${isRefreshingWeather ? 'animate-spin' : ''}`} />
               <div className="text-left leading-tight">
                 <div className="text-[9px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Palangka Raya</div>
-                <div className="text-sm font-bold text-dark dark:text-white">{weatherTemp}</div>
+                <div className="text-sm font-bold text-dark dark:text-white">
+                  {isRefreshingWeather ? '...' : weatherTemp}
+                </div>
               </div>
-            </a>
+            </button>
 
             {/* Currency Widget */}
-            <a
-              href="https://www.google.com/search?q=usd+to+idr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
+            <button
+              onClick={fetchKurs}
+              disabled={isRefreshingKurs}
+              title="Klik untuk perbarui kurs"
+              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 disabled:opacity-70 active:scale-95"
             >
               <div className="text-left leading-tight">
                 <div className="text-[9px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">USD / IDR</div>
                 <div className="text-sm font-bold text-dark dark:text-white flex items-center gap-1">
-                  {exchangeRate} <FiTrendingUp size={14} className="text-green-500 stroke-[3]" />
+                  {isRefreshingKurs ? '...' : exchangeRate} 
+                  <FiTrendingUp size={14} className={`text-green-500 stroke-[3] ${isRefreshingKurs ? 'animate-pulse' : ''}`} />
                 </div>
               </div>
-            </a>
+            </button>
           </div>
 
           {/* SakuCatat App Section */}
