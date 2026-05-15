@@ -16,7 +16,7 @@ const Notes = () => {
 
   useEffect(() => {
     // Ambil data cuaca realtime (Palangka Raya) menggunakan Open-Meteo API
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=-2.21&longitude=113.92&current_weather=true')
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=-2.21&longitude=113.92&current_weather=true', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data && data.current_weather) {
@@ -26,7 +26,7 @@ const Notes = () => {
       .catch(() => setWeatherTemp('31°C')); // Fallback jika gagal
 
     // Ambil data kurs realtime (USD ke IDR) menggunakan ExchangeRate-API
-    fetch('https://open.er-api.com/v6/latest/USD')
+    fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data && data.rates && data.rates.IDR) {
