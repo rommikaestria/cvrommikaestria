@@ -10,8 +10,8 @@ const About = () => {
           <div className="w-20 h-1 bg-navy rounded"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed text-lg text-justify">
+        <div className="w-full">
+          <div className="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed text-lg text-justify">
             <p>
               Saya adalah Dosen di STMIK Palangkaraya dan praktisi Teknologi Informasi dengan latar belakang pendidikan Magister Komputer Teknik Komputer.
             </p>
