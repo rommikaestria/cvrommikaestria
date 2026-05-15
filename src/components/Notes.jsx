@@ -8,13 +8,11 @@ const Notes = () => {
   // -- Notes App State --
   const [notes, setNotes] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [modalConfig, setModalConfig] = useState({ isOpen: false, id: null, type: 'note' });
   const [selectedColor, setSelectedColor] = useState('bg-white');
   const [noteTitle, setNoteTitle] = useState('');
 
   const noteBodyRef = useRef(null);
-  const dropdownRef = useRef(null);
 
   useEffect(() => {
     // Ambil data cuaca realtime (Palangka Raya) menggunakan Open-Meteo API
@@ -43,18 +41,9 @@ const Notes = () => {
       setNotes(JSON.parse(savedNotes));
     }
 
-    // Close dropdown when clicking outside
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const openModal = (id = null, type = 'note') => {
-    setIsDropdownOpen(false);
     if (id) {
       const note = notes.find((n) => n.id === id);
       if (note) {
@@ -92,7 +81,7 @@ const Notes = () => {
 
   const saveNote = () => {
     if (!noteBodyRef.current) return;
-    
+
     const lists = noteBodyRef.current.querySelectorAll('ul');
     lists.forEach(ul => {
       const tempItems = Array.from(ul.children);
@@ -172,21 +161,21 @@ const Notes = () => {
       if (target.tagName === 'BUTTON' || target.tagName === 'A') return;
       target = target.parentNode;
     }
-    
+
     if (target && target.tagName === 'LI') {
       e.stopPropagation();
       const newNotes = [...notes];
       const noteIndex = newNotes.findIndex(n => n.id === noteId);
       if (noteIndex === -1) return;
-      
+
       const parentUl = target.parentNode;
       const items = Array.from(parentUl.children);
       const itemIndex = items.indexOf(target);
-      
+
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = newNotes[noteIndex].body;
       const targetLi = tempDiv.querySelectorAll('li')[itemIndex];
-      
+
       if (targetLi) {
         targetLi.classList.toggle('done');
         const ul = targetLi.parentElement;
@@ -197,7 +186,7 @@ const Notes = () => {
           return aDone - bDone;
         });
         tempItems.forEach(item => ul.appendChild(item));
-        
+
         newNotes[noteIndex].body = tempDiv.innerHTML;
         newNotes[noteIndex].updatedAt = new Date().toISOString();
         setNotes(newNotes);
@@ -206,8 +195,8 @@ const Notes = () => {
     }
   };
 
-  const filteredNotes = notes.filter(n => 
-    n.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+  const filteredNotes = notes.filter(n =>
+    n.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     n.body.toLowerCase().includes(searchQuery.toLowerCase())
   );
   const pinnedNotes = filteredNotes.filter(n => n.pinned);
@@ -317,7 +306,7 @@ const Notes = () => {
           {/* SakuCatat App Section */}
           <div className="mt-16 w-full max-w-6xl mx-auto border-t border-gray-100 dark:border-gray-800 pt-10 text-left">
             <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100">
-              
+
               {/* App Header/Nav */}
               <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -327,14 +316,14 @@ const Notes = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
-                    SakuCatat
+                    CatatanSaku
                   </h3>
                 </div>
-                
+
                 <div className="relative w-full sm:max-w-md">
-                  <input 
-                    type="text" 
-                    placeholder="Cari catatan atau tugas..." 
+                  <input
+                    type="text"
+                    placeholder="Cari catatan atau tugas..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-700/50 border-none rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400"
@@ -344,42 +333,16 @@ const Notes = () => {
                   </svg>
                 </div>
 
-                <div className="relative w-full sm:w-auto z-10" ref={dropdownRef}>
-                  <button 
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all shadow-md active:scale-95"
+                <div className="relative w-auto z-10 flex justify-end">
+                  <button
+                    onClick={() => openModal(null, 'note')}
+                    title="Tambah Catatan"
+                    className="w-10 h-10 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl flex items-center justify-center transition-all shadow-md active:scale-95"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
-                    </svg>
-                    <span>Tambah</span>
-                    <svg className="w-3 h-3 ml-1 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                     </svg>
                   </button>
-                  
-                  {isDropdownOpen && (
-                    <div className="absolute right-0 sm:right-0 left-0 sm:left-auto mt-2 w-full sm:w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 origin-top-right animate-fade-in">
-                      <button 
-                        onClick={() => openModal(null, 'note')}
-                        className="w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-700 flex items-center gap-3 transition-colors"
-                      >
-                        <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                        Buat Catatan
-                      </button>
-                      <button 
-                        onClick={() => openModal(null, 'todo')}
-                        className="w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-slate-700 flex items-center gap-3 transition-colors"
-                      >
-                        <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
-                        Membuat To-do List
-                      </button>
-                    </div>
-                  )}
                 </div>
               </div>
 
@@ -407,7 +370,7 @@ const Notes = () => {
                       Semua Catatan
                     </h2>
                   )}
-                  
+
                   {othersNotes.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                       {othersNotes.map(note => (
@@ -449,15 +412,15 @@ const Notes = () => {
                 </button>
               </div>
 
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={noteTitle}
                 onChange={(e) => setNoteTitle(e.target.value)}
-                placeholder="Judul" 
-                className={`w-full text-xl font-bold border-none focus:ring-0 mb-2 p-0 bg-transparent placeholder-slate-400 ${selectedColor === 'bg-white' ? 'text-slate-800 dark:text-white' : 'text-slate-800'}`} 
+                placeholder="Judul"
+                className={`w-full text-xl font-bold border-none focus:ring-0 mb-2 p-0 bg-transparent placeholder-slate-400 ${selectedColor === 'bg-white' ? 'text-slate-800 dark:text-white' : 'text-slate-800'}`}
               />
 
-              <div 
+              <div
                 ref={noteBodyRef}
                 contentEditable="true"
                 data-placeholder="Tuliskan sesuatu..."
@@ -470,7 +433,7 @@ const Notes = () => {
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mr-1">Tema:</span>
                   <div className="flex gap-1.5">
                     {['bg-white', 'bg-rose-50', 'bg-amber-50', 'bg-emerald-50', 'bg-sky-50', 'bg-violet-50'].map(color => (
-                      <button 
+                      <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
                         className={`w-6 h-6 rounded-full border ${color === 'bg-white' ? 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600' : color + ' border-transparent'} ${selectedColor === color ? 'ring-2 ring-indigo-400 ring-offset-2 dark:ring-offset-slate-800' : ''} transition-all`}
@@ -494,14 +457,14 @@ const Notes = () => {
 const NoteCard = ({ note, openModal, togglePin, deleteNote, handleGridClick }) => {
   const isTodo = note.body.includes('<li');
   const date = new Date(note.updatedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
-  
+
   const bgClass = note.color === 'bg-white' ? 'bg-white dark:bg-slate-800' : note.color;
   const textClass = note.color === 'bg-white' ? 'text-slate-800 dark:text-slate-100' : 'text-slate-800';
   const subTextClass = note.color === 'bg-white' ? 'text-slate-600 dark:text-slate-300' : 'text-slate-600';
 
   return (
-    <div 
-      onClick={() => openModal(note.id)} 
+    <div
+      onClick={() => openModal(note.id)}
       className={`note-card ${bgClass} p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md flex flex-col h-fit group animate-fade-in relative text-left`}
     >
       <div className="flex justify-between items-start mb-3">
@@ -509,16 +472,16 @@ const NoteCard = ({ note, openModal, togglePin, deleteNote, handleGridClick }) =
           {isTodo && <span className="px-2 py-0.5 bg-indigo-100 text-indigo-600 text-[10px] font-bold rounded-full uppercase">Todo</span>}
           <h3 className={`font-bold ${textClass} line-clamp-1`}>{note.title || 'Tanpa Judul'}</h3>
         </div>
-        <button 
-          onClick={(e) => { e.stopPropagation(); togglePin(note.id); }} 
+        <button
+          onClick={(e) => { e.stopPropagation(); togglePin(note.id); }}
           className={`p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors ${note.pinned ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'}`}
         >
           <svg className="w-4 h-4" fill={note.pinned ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.5 6L10.5 6M9 21h6m-3-3V3m-5 3h10"></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21v-6m-3-4l-2 2h10l-2-2m-6 0V7a2 2 0 012-2h2a2 2 0 012 2v4m-6 0h6"></path>
           </svg>
         </button>
       </div>
-      <div 
+      <div
         className={`note-content text-sm ${subTextClass} mb-6 line-clamp-6`}
         onClick={(e) => handleGridClick(e, note.id)}
         dangerouslySetInnerHTML={{ __html: note.body }}
@@ -526,8 +489,8 @@ const NoteCard = ({ note, openModal, togglePin, deleteNote, handleGridClick }) =
       <div className="mt-auto flex items-center justify-between">
         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{date}</span>
         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button 
-            onClick={(e) => { e.stopPropagation(); deleteNote(note.id); }} 
+          <button
+            onClick={(e) => { e.stopPropagation(); deleteNote(note.id); }}
             className="p-2 bg-white/80 dark:bg-slate-700/80 hover:bg-rose-50 dark:hover:bg-rose-900/30 rounded-xl shadow-sm text-rose-500 transition-all border border-black/5 dark:border-white/5"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
