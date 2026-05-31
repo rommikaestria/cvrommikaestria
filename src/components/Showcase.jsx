@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiBook, FiPlayCircle } from 'react-icons/fi';
+import { FiBook, FiPlayCircle, FiExternalLink, FiLayers } from 'react-icons/fi';
 import QRCode from 'react-qr-code';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,6 +9,11 @@ import imgKonsepDataWarehouseArsitektur from '../assets/KonsepDasarDataWarehouse
 import imgDasarKomputer from '../assets/DASARDASARKOMPUTERDANPEMROGRAMAN(TEORI DAN PRAKTIK).png';
 import imgKonsepDataWarehouse from '../assets/KonsepDasarDataWarehouse.png';
 import imgPemrogramanWeb from '../assets/PemrogramanWebdanAplikasiMobile.png';
+import imgProtoMicroeval from '../assets/proto_microeval.png';
+import imgProtoEvaPembelajaran from '../assets/proto_evapembelajaran.png';
+import imgProtoVitals from '../assets/proto_vitals.png';
+import imgProtoKonsulMhs from '../assets/proto_konsulmhs.png';
+import imgProtoLacakKompetensi from '../assets/proto_lacakkompetensi.png';
 
 const Showcase = () => {
   const videos = [
@@ -26,6 +31,49 @@ const Showcase = () => {
       title: "Samudra Data pada SQL dan NoSQL",
       year: "Materi",
       videoId: "kAMDvuj4GMc",
+    }
+  ];
+
+  const prototypes = [
+    {
+      title: "App Evaluasi Pengajaran",
+      url: "https://ketikode.my.id/microeval/",
+      description: "Sistem akademik raksasa (LMS) seringkali terlalu rumit dan memiliki banyak fitur yang tidak dipakai. Pengajar modern lebih membutuhkan micro-tools yang berfokus pada satu metode spesifik.",
+      image: imgProtoMicroeval,
+      tags: ["LMS", "Micro-Tool", "Academic"],
+      category: "Web Application"
+    },
+    {
+      title: "App Evaluasi Pembelajaran Interaktif",
+      url: "https://ketikode.my.id/evapembelajaraninteraktif/",
+      description: "Mengevaluasi mahasiswa dalam sesi diskusi atau studi kasus sangat sulit jika menggunakan spreadsheet biasa. Aplikasi ini dirancang khusus untuk mencatat observasi secara real-time.",
+      image: imgProtoEvaPembelajaran,
+      tags: ["Real-time Evaluation", "Classroom Observation", "Active Learning"],
+      category: "Web Application"
+    },
+    {
+      title: "App Monitoring Kesehatan",
+      url: "https://ketikode.my.id/monikes/",
+      description: "Aplikasi dasbor kesehatan pengguna yang mencakup metrik utama, grafik tren, dan bilah navigasi bawah (bottom navigation bar) standar untuk aplikasi seluler.",
+      image: imgProtoVitals,
+      tags: ["Health Dashboard", "Vitals Tracker", "Mobile Web UI"],
+      category: "Mobile Web App"
+    },
+    {
+      title: "App Konsultasi Mahasiswa Dan Dosen",
+      url: "https://ketikode.my.id/konsulmhs/",
+      description: "Prototipe tampilan bimbingan konsultasi antara mahasiswa dan dosen berbasis mobile.",
+      image: imgProtoKonsulMhs,
+      tags: ["Academic Mentorship", "Mobile UI Mockup", "Chat System"],
+      category: "Mobile Web App"
+    },
+    {
+      title: "App Lacak Kompetensi",
+      url: "https://ketikode.my.id/lacakompetensi/",
+      description: "Aplikasi ini berfokus pada perekaman kompetensi nyata secara terstruktur, bukan sekadar mencatat judul kelas atau mata kuliah yang diambil.",
+      image: imgProtoLacakKompetensi,
+      tags: ["Competency Tracker", "Skill Assessment", "Structured Learning"],
+      category: "Web Application"
     }
   ];
 
@@ -154,6 +202,47 @@ const Showcase = () => {
     </div>
   );
 
+  const renderPrototypeCard = (proto) => (
+    <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full w-full">
+      <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-800">
+        <img
+          src={proto.image}
+          alt={proto.title}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute top-4 left-4 bg-navy dark:bg-blue-900 px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm">
+          {proto.category}
+        </div>
+      </div>
+      <div className="p-6 flex flex-col flex-1 justify-between">
+        <div>
+          <h3 className="text-lg font-bold text-dark dark:text-white leading-snug mb-3 line-clamp-2" title={proto.title}>
+            {proto.title}
+          </h3>
+          <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed">
+            {proto.description}
+          </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {proto.tags.map((tag) => (
+              <span key={tag} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-md font-medium">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <a
+          href={proto.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-3 px-4 bg-navy dark:bg-blue-900 bg-opacity-5 dark:bg-opacity-20 text-navy dark:text-blue-300 hover:bg-navy dark:hover:bg-blue-800 hover:text-white rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+        >
+          <FiExternalLink size={16} /> Buka Prototipe
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <section id="books" className="py-20 bg-light dark:bg-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -240,6 +329,49 @@ const Showcase = () => {
           >
             <FiPlayCircle size={20} /> Melihat Video Lainnya
           </a>
+        </div>
+
+        {/* Pembatas / Header Prototipe Aplikasi */}
+        <div className="mt-16 md:mt-24 mb-8 md:mb-16 text-center">
+          <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Prototipe Aplikasi</h2>
+          <div className="w-20 h-1 bg-navy rounded mx-auto mb-6"></div>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Kumpulan contoh prototipe desain dan aplikasi interaktif yang dikembangkan untuk memecahkan berbagai kebutuhan spesifik.
+          </p>
+        </div>
+
+        {/* Desktop Grid (md and up) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {prototypes.map((proto) => (
+            <React.Fragment key={proto.title}>
+              {renderPrototypeCard(proto)}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* Mobile Infinity Slider (below md) */}
+        <div className="block md:hidden -mx-4 pb-8">
+          <Swiper
+            loop={true}
+            slidesPerView={1.1}
+            spaceBetween={20}
+            centeredSlides={true}
+            className="w-full px-4"
+          >
+            {prototypes.map((proto, idx) => (
+              <SwiperSlide key={`${proto.title}-${idx}`} className="h-auto pb-2">
+                {renderPrototypeCard(proto)}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Informasi Tambahan (Disclaimer) */}
+        <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-2xl text-center max-w-3xl mx-auto">
+          <p className="text-blue-800 dark:text-blue-300 text-sm md:text-base font-medium flex items-center justify-center gap-2 flex-wrap">
+            <span>💡</span>
+            <span>Ini baru sebagian kecil contoh prototipe. Masih banyak contoh tampilan aplikasi lainnya yang belum dipublikasikan ke halaman website ini.</span>
+          </p>
         </div>
       </div>
     </section>
