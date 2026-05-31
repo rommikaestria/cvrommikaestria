@@ -200,7 +200,7 @@ const Showcase = () => {
           <h2 className="text-3xl font-bold text-dark dark:text-white mb-2">Channel Youtube</h2>
           <div className="w-20 h-1 bg-red-600 rounded mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Berbagi wawasan seputar teknologi, tutorial, dan edukasi melalui kanal YouTube <a href="https://www.youtube.com/@dataroom40" target="_blank" rel="noreferrer" className="text-red-600 font-bold hover:underline">@dataroom40</a>
+            Berbagi wawasan seputar teknologi, tutorial ajjjajaja, dan edukasi melalui kanal YouTube <a href="https://www.youtube.com/@dataroom40" target="_blank" rel="noreferrer" className="text-red-600 font-bold hover:underline">@dataroom40</a>
           </p>
         </div>
 
